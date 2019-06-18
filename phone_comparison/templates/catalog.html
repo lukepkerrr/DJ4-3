@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Каталог{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="header">
+            <h1>Сравнение телефонов</h1>
+        </div>
+        <table>
+            <tr>
+                <td>Модель:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.phone_name }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Стоимость:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.cost }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>ОС:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.os }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Пикс/дюйм:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.resolution }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Оперативная память:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.ram }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Память:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.memory }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Bluetooth:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.bluetooth }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Процессор:</td>
+                {% for phone in Phones %}
+                    <td>{{ phone.cpu }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Touch-id:</td>
+                {% for phone in Additional %}
+                    {% if phone.touch_id %}
+                        <td>{{ phone.touch_id }}</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Двойная камера</td>
+                {% for phone in Additional %}
+                    {% if phone.camera %}
+                        <td>{{ phone.camera }}</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            <tr>
+                <td>Touch-id:</td>
+                {% for phone in Additional %}
+                    {% if phone.flashlight %}
+                        <td>{{ phone.flashlight }}</td>
+                    {% else %}
+                        <td>-</td>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+        </table>
+    </div>
+{% endblock %}
